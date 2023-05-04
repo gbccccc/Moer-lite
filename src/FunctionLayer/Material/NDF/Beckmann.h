@@ -19,6 +19,7 @@ public:
     // TODO
     // 根据公式即可
     // tips: return getG1(wo) * getG1(wi);
+      return 0.f;
   }
   virtual float pdf(const Vector3f &woLocal, const Vector3f &whLocal,
                     const Vector2f &alpha) const noexcept override {
