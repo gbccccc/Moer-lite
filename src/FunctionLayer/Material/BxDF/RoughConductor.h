@@ -25,7 +25,8 @@ public:
 		Vector3f wiLocal = toLocal(wi), woLocal = toLocal(wo);
 		Vector3f whLocal = wiLocal + woLocal;
 		whLocal /= whLocal.length();
-		return albedo * ndf->getD(whLocal, alpha) * ndf->getG(woLocal, wiLocal, alpha) * getFr(wiLocal[1]) / (4 * woLocal[1]);
+		float microCosThetaI = dot(wiLocal, whLocal);
+		return albedo * ndf->getD(whLocal, alpha) * ndf->getG(woLocal, wiLocal, alpha) * getFr(microCosThetaI) / (4 * woLocal[1]);
 	}
 
 	virtual BSDFSampleResult sample(const Vector3f& wo,

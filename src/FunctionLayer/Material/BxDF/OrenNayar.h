@@ -35,20 +35,7 @@ public:
 		float cosPhiDiffer = (wiLocal[0] * woLocal[0]) / (ri * ro) +
 			(wiLocal[2] * woLocal[2]) / (ri * ro);
 
-
-		//if (wiLocal[1] < 0)
-		//	std::cout << "wi: " << wiLocal[1] << std::endl;
-		//if (woLocal[1] < 0)
-		//	std::cout << "wo: " << wiLocal[1] << std::endl;
-		//if (INV_PI * (a + b * std::max(0.f, cosPhiDiffer) * sinAlpha * tanBeta) < 0.1f)
-		//{
-		//	std::cout << std::endl;
-		//	std::cout << wiLocal[0] << ' ' << wiLocal[1] << ' ' << wiLocal[2] << std::endl;
-		//	std::cout << wi[0] << ' ' << wi[1] << ' ' << wi[2] << std::endl;
-		//	std::cout << normal[0] << ' ' << normal[1] << ' ' << normal[2] << std::endl;
-		//	std::cout << INV_PI * (a + b * std::max(0.f, cosPhiDiffer) * sinAlpha * tanBeta) << std::endl;
-		//}
-		return albedo * INV_PI * (a + b * std::max(0.f, cosPhiDiffer) * sinAlpha * tanBeta);
+		return albedo * wiLocal[1] * INV_PI * (a + b * std::max(0.f, cosPhiDiffer) * sinAlpha * tanBeta);
 	}
 
 	virtual BSDFSampleResult sample(const Vector3f& wo,
